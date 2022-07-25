@@ -10,9 +10,9 @@ const {
 //public routes
 
 router.get('/', renderHomePage);
-router.get('/login', renderHomePage);
-router.get('/signup', renderHomePage);
+router.get('/login', renderLoginPage);
+router.get('/signup', renderSignUpPage);
 
 //private routes
 
-router.get('/myBlogs', renderMyBlogsPage);
+router.get('/myblogs', renderMyBlogsPage);
