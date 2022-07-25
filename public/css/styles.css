@@ -1,0 +1,10 @@
+.blog-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.background-img {
+  object-fit: contain;
+
+  height: 190px;
+}

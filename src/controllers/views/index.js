@@ -18,7 +18,13 @@ const renderSignUpPage = (req, res) => {
 const renderMyBlogsPage = (req, res) => {
   return res.render('myBlogs', {
     isLoggedIn: req.session.isLoggedIn,
-    currentPage: 'myblogs',
+    currentPage: 'myBlogs',
+  });
+};
+const renderSingleBlogsPage = (req, res) => {
+  return res.render('singleBlogs', {
+    isLoggedIn: req.session.isLoggedIn,
+    currentPage: 'singleBlogs',
   });
 };
 
@@ -27,4 +33,5 @@ module.exports = {
   renderLoginPage,
   renderSignUpPage,
   renderMyBlogsPage,
+  renderSingleBlogsPage,
 };
