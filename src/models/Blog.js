@@ -33,6 +33,11 @@ Blog.init({
     allowNull: false,
   },
 
+  blog_description: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+
   blog_text: {
     type: DataTypes.TEXT,
     allowNull: false,

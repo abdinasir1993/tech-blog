@@ -1,8 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 
 const connection = require('../config/connection');
-const Product = require('./Product');
-const Tag = require('./Tag');
+
+const Blog = require('./Blog');
+const User = require('./user');
 
 class Comments extends Model {}
 
@@ -14,17 +15,17 @@ Comments.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    Blog_id: {
+    blog_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: Product,
+        model: Blog,
         key: 'id',
       },
     },
-    User_id: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: Tag,
+        model: User,
         key: 'id',
       },
     },
@@ -36,7 +37,7 @@ Comments.init(
   },
   {
     connection,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'Comments',

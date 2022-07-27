@@ -6,6 +6,7 @@ const {
   renderLoginPage,
   renderSignUpPage,
   renderSingleBlogsPage,
+  renderCreateBlogsPage,
 } = require('../../controllers/views');
 
 //public routes
@@ -16,5 +17,6 @@ router.get('/signup', renderSignUpPage);
 
 //private routes
 
-router.get('/myblogs/:id', renderMyBlogsPage);
+router.get('/myBlog/:id', renderMyBlogsPage);
 router.get('/blog/:id', renderSingleBlogsPage);
+router.get('/blog/:id', renderCreateBlogsPage);

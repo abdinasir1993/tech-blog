@@ -27,6 +27,12 @@ const renderSingleBlogsPage = (req, res) => {
     currentPage: 'singleBlogs',
   });
 };
+const renderCreateBlogsPage = (req, res) => {
+  return res.render('CreateBlog', {
+    isLoggedIn: req.session.isLoggedIn,
+    currentPage: 'CreateBlog',
+  });
+};
 
 module.exports = {
   renderHomePage,
@@ -34,4 +40,5 @@ module.exports = {
   renderSignUpPage,
   renderMyBlogsPage,
   renderSingleBlogsPage,
+  renderCreateBlogsPage,
 };
