@@ -1,8 +1,6 @@
+const errorText = $('#error-text');
 const signupForm = $('#signup-form');
 const loginForm = $('#login-form');
-
-signupForm.submit(handleSignup);
-loginForm.submit(handleLogin);
 
 const handleSignup = async (event) => {
   event.preventDefault();
@@ -24,6 +22,8 @@ const handleSignup = async (event) => {
           email,
           password,
         };
+
+        console.log(payload);
 
         const response = await fetch('/auth/signup', {
           method: 'POST',
@@ -68,18 +68,19 @@ const handleLogin = async (event) => {
         password,
       };
 
-      const response = await fetch('/auth/login', {
+      const response = await fetch('auth/login', {
         method: 'POST',
         body: JSON.stringify(payload),
         headers: {
           'Content-Type': 'application/json',
         },
       });
+      console.log(payload);
 
       const data = await response.json();
 
       if (data.success) {
-        window.location.assign('/dashboard');
+        window.location.assign('/');
       } else {
         errorText.append(`<div class="alert alert-danger" role="alert">
           failed to login!
@@ -115,3 +116,6 @@ const handleLogout = async (event) => {
     window.location.replace('/');
   }
 };
+
+signupForm.submit(handleSignup);
+loginForm.submit(handleLogin);

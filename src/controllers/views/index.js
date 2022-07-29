@@ -1,10 +1,7 @@
 const moment = require('moment');
 
 const renderHomePage = (req, res) => {
-  return res.render('home', {
-    isLoggedIn: req.session.isLoggedIn,
-    currentPage: 'home',
-  });
+  return res.render('homePage');
 };
 
 const renderLoginPage = (req, res) => {
@@ -22,10 +19,7 @@ const renderMyBlogsPage = (req, res) => {
   });
 };
 const renderSingleBlogsPage = (req, res) => {
-  return res.render('singleBlogs', {
-    isLoggedIn: req.session.isLoggedIn,
-    currentPage: 'singleBlogs',
-  });
+  return res.render('singleBlog', {});
 };
 const renderCreateBlogsPage = (req, res) => {
   return res.render('CreateBlog', {

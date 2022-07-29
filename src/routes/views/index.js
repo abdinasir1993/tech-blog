@@ -1,4 +1,4 @@
-const router = require('express').router();
+const router = require('express').Router();
 
 const {
   renderHomePage,
@@ -14,9 +14,12 @@ const {
 router.get('/', renderHomePage);
 router.get('/login', renderLoginPage);
 router.get('/signup', renderSignUpPage);
+router.get('/blog', renderSingleBlogsPage);
 
 //private routes
 
 router.get('/myBlog/:id', renderMyBlogsPage);
 router.get('/blog/:id', renderSingleBlogsPage);
 router.get('/blog/:id', renderCreateBlogsPage);
+
+module.exports = router;

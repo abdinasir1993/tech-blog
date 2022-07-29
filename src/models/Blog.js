@@ -2,23 +2,25 @@ const { Model, DataTypes } = require('sequelize');
 
 const connection = require('../config/connections');
 
-const User = require('./user');
+const User = require('./User');
 
 class Blog extends Model {}
 
-Blog.init({
+const schema = {
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    primerKey: true,
+    primaryKey: true,
     autoIncrement: true,
   },
 
   user_id: {
     type: DataTypes.INTEGER,
+
     allowNull: false,
-    references: {
-      model: User,
+
+    foreignKey: {
+      references: User,
       key: 'id',
     },
   },
@@ -52,7 +54,8 @@ Blog.init({
       isUrl: true,
     },
   },
-});
+};
+
 const options = {
   sequelize: connection,
   timestamps: true,
@@ -60,6 +63,7 @@ const options = {
   freezeTableName: true,
   modelName: 'Blog',
 };
+
 Blog.init(schema, options);
 
 module.exports = Blog;

@@ -8,9 +8,9 @@ const seedAll = async () => {
     await connection.sync({ force: true });
     console.log('✅ connected to database');
 
-    await seedComments();
-    await seedBlogs();
     await seedUsers();
+    await seedBlogs();
+    await seedComments();
   } catch (error) {
     console.log(`[ERROR]: Failed to seed database | ${error.message}`);
   }
