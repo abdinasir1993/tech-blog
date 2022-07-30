@@ -4,24 +4,11 @@
 }
 
 .background-img {
-  object-fit: contain;
+  object-fit: cover;
 
   height: 200px;
 }
-.hero-body {
-  position: relative;
-  margin-bottom: 50rem;
-}
 
-.main-hero {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  height: 38rem;
-  background-image: url('https://wallpaperaccess.com/full/148602.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.tech-banner {
+  margin-bottom: 20px;
 }
