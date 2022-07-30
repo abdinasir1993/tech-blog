@@ -20,6 +20,6 @@ router.get('/blog', renderSingleBlogsPage);
 
 router.get('/myBlog/:id', renderMyBlogsPage);
 router.get('/blog/:id', renderSingleBlogsPage);
-router.get('/blog/:id', renderCreateBlogsPage);
+router.get('/createBlog', renderCreateBlogsPage);
 
 module.exports = router;
