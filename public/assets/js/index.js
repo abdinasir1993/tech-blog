@@ -126,19 +126,16 @@ const handleCreateBlog = async (event) => {
 
   const blog_title = $('#blog-title').val();
 
-  const cover_image_url = $('#cover-image').val();
-
   const blog_description = $('#blog-description').val();
 
   const blog_text = $('#blog-text1').val();
 
-  if (blog_title && cover_image_url && blog_description && blog_text) {
+  if (blog_title && blog_description && blog_text) {
     try {
       const payload = {
         blog_title,
         blog_description,
         blog_text,
-        cover_image_url,
       };
       console.log(payload);
 
@@ -153,7 +150,7 @@ const handleCreateBlog = async (event) => {
       const data = await response.json();
 
       if (data.success) {
-        window.location.assign('/blog');
+        window.location.assign('/');
       } else {
         errorText.append('Failed to create a new blog2. Please try again.');
       }
