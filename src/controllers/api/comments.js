@@ -4,15 +4,14 @@ const comment = require('../../models/Comments');
 
 const createComment = async (req, res) => {
   try {
-    const { blog_id, comment_text, date_created } = req.body;
+    const { blog_id, comment_text } = req.body;
 
-    const userId = req.session.user.id;
+    const user_id = req.session.user.id || 1;
 
     await comment.create({
       blog_id,
-      userId,
+      user_id,
       comment_text,
-      date_created,
     });
 
     return res.json({ success: true });

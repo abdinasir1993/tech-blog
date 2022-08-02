@@ -51,7 +51,7 @@ const options = {
   timestamp: true,
   underscored: false,
   freezeTableName: true,
-  modelName: 'user',
+  modelName: 'User',
   hooks: { beforeCreate: hashPassword },
 };
 User.init(schema, options);

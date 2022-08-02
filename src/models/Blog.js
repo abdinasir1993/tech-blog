@@ -3,6 +3,7 @@ const { Model, DataTypes } = require('sequelize');
 const connection = require('../config/connections');
 
 const User = require('./User');
+const Comments = require('./Comments');
 
 class Blog extends Model {}
 
@@ -25,10 +26,21 @@ const schema = {
     },
   },
 
-  date_created: {
-    type: DataTypes.DATE,
-    allowNull: false,
-  },
+  // comments_id: {
+  //   type: DataTypes.INTEGER,
+
+  //   allowNull: true,
+
+  //   foreignKey: {
+  //     references: Comments,
+  //     key: 'id',
+  //   },
+  // },
+
+  // date_created: {
+  //   type: DataTypes.DATE,
+  //   allowNull: true,
+  // },
 
   blog_title: {
     type: DataTypes.TEXT,
@@ -51,7 +63,7 @@ const schema = {
     defaultValue:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsfXF8KuLpk8fc8I5cZSaljiapnuxO0Abbrw81CwezJuCnKU6xykhyYd2X3js9CNlWwsE&usqp=CAU',
     validate: {
-      isUrl: true,
+      notEmpty: true,
     },
   },
 };

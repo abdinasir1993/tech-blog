@@ -37,16 +37,17 @@ const getSingleBlog = async (req, res) => {
 
 const createBlog = async (req, res) => {
   try {
-    const { Blog_title, cover_image_url, date_created, blog_text } = req.body;
+    const { blog_title, blog_description, cover_image_url, blog_text } =
+      req.body;
 
     const user_id = req.session.user.id;
 
     await Blog.create({
       user_id,
-      Blog_title,
+      blog_title,
       cover_image_url,
-      date_created,
       blog_text,
+      blog_description,
     });
 
     return res.json({ success: true });

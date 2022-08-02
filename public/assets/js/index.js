@@ -1,6 +1,8 @@
 const errorText = $('#error-text');
 const signupForm = $('#signup-form');
 const loginForm = $('#login-form');
+const createBlogForm = $('#create-blog-form');
+const addComment = $('#add-comment');
 
 const handleSignup = async (event) => {
   event.preventDefault();
@@ -117,5 +119,86 @@ const handleLogout = async (event) => {
   }
 };
 
+const handleCreateBlog = async (event) => {
+  event.preventDefault();
+
+  console.log('click');
+
+  const blog_title = $('#blog-title').val();
+
+  const cover_image_url = $('#cover-image').val();
+
+  const blog_description = $('#blog-description').val();
+
+  const blog_text = $('#blog-text1').val();
+
+  if (blog_title && cover_image_url && blog_description && blog_text) {
+    try {
+      const payload = {
+        blog_title,
+        blog_description,
+        blog_text,
+        cover_image_url,
+      };
+      console.log(payload);
+
+      const response = await fetch('/api/blogs', {
+        method: 'POST',
+        body: JSON.stringify(payload),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        window.location.assign('/blog');
+      } else {
+        errorText.append('Failed to create a new blog2. Please try again.');
+      }
+    } catch (error) {
+      errorText.append('Failed to create a new blog1. Please try again.');
+    }
+  }
+};
+const handleCreateComment = async (event) => {
+  event.preventDefault();
+  const comment_text = $('#comment-text').val();
+
+  console.log(comment_text);
+
+  if (comment_text) {
+    try {
+      const url = window.location.pathname;
+      const blog_id = url.substring(url.lastIndexOf('/') + 1);
+
+      const payload = {
+        comment_text,
+        blog_id,
+      };
+      const response = await fetch('/api/comments/', {
+        method: 'POST',
+        body: JSON.stringify(payload),
+        headers: {
+          'content-Type': 'application/json',
+        },
+      });
+      const data = await response.json();
+
+      console.log(data);
+      if (data.success) {
+        // window.location.assign(refresh);
+      } else {
+        errorText.append('Failed to create a new comment1. Please try again.');
+      }
+    } catch (error) {
+      errorText.append('Failed to create a new comment2. Please try again.');
+    }
+  }
+};
+
+addComment.click(handleCreateComment);
+createBlogForm.submit(handleCreateBlog);
 signupForm.submit(handleSignup);
 loginForm.submit(handleLogin);

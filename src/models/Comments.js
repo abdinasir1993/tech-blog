@@ -16,13 +16,17 @@ const schema = {
   },
   blog_id: {
     type: DataTypes.INTEGER,
+    allowNull:false,
     foreignKey: {
       references: Blog,
       key: 'id',
     },
+    onDelete: 'CASCADE',
   },
+
   user_id: {
     type: DataTypes.INTEGER,
+    allowNull:false,
     foreignKey: {
       references: User,
       key: 'id',

@@ -1,5 +1,3 @@
-// n
-
 const isEqualTo = (data, equalToString) => {
   return data === equalToString;
 };

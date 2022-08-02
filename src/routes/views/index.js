@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const {
   renderHomePage,
-  renderMyBlogsPage,
+  // renderMyBlogsPage,
   renderLoginPage,
   renderSignUpPage,
   renderSingleBlogsPage,
@@ -18,7 +18,7 @@ router.get('/blog', renderSingleBlogsPage);
 
 //private routes
 
-router.get('/myBlog/:id', renderMyBlogsPage);
+// router.get('/myBlog/:id', renderMyBlogsPage);
 router.get('/blog/:id', renderSingleBlogsPage);
 router.get('/createBlog', renderCreateBlogsPage);
 
