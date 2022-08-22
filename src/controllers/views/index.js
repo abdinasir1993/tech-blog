@@ -25,12 +25,15 @@ const renderSignUpPage = (req, res) => {
 const renderSingleBlogsPage = async (req, res) => {
   const blogFromDb = await Blog.findByPk(req.params.id, {});
 
-  console.log('this:', blogFromDb);
-
+  const blog = blogFromDb.get({
+    plain: true,
+  });
+  console.log(blog);
   return res.render('singleBlog', {
-    blogFromDb,
-    currentPage: 'singleBlog',
+    blog,
+
     isLoggedIn: req.session.isLoggedIn,
+    currentPage: 'singleBlog',
   });
 };
 
@@ -55,7 +58,6 @@ module.exports = {
   renderHomePage,
   renderLoginPage,
   renderSignUpPage,
-
   renderSingleBlogsPage,
   renderCreateBlogsPage,
 };

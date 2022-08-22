@@ -12,3 +12,9 @@
 .tech-banner {
   margin-bottom: 20px;
 }
+
+.blog-image {
+  object-fit: cover;
+  width: 45rem;
+  height: 35rem;
+}

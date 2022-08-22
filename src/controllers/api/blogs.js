@@ -1,5 +1,7 @@
 const moment = require('moment');
-const Blog = require('../../models/Blog');
+// const Blog = require('../../models/Blog');
+// const Comments = require('../../models/Comments');
+const { Blog, Comments } = require('../../models');
 
 const getAllBlogs = async (req, res) => {
   try {
@@ -17,7 +19,14 @@ const getSingleBlog = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const data = await Blog.findByPk(id);
+    const data = await Blog.findByPk(id, {
+      include: [
+        {
+          model: Comments,
+          attributes: ['user_id', 'comment_text'],
+        },
+      ],
+    });
 
     if (!data) {
       console.log(`[ERROR]: Blog not found`);

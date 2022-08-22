@@ -3,7 +3,7 @@ const Blog = require('../models/Blog');
 const blogs = [
   {
     user_id: 1,
-    date_created: 2022 - 07 - 27,
+    comments_id: 1,
     blog_title: 'Am I an Idiot for Wanting a Dumber Phone?',
     blog_description:
       'WIRED’s spiritual advice columnist offers counsel to a reader overwhelmed by apps, dings, and beeps.',
@@ -21,7 +21,7 @@ const blogs = [
 
   {
     user_id: 2,
-    date_created: 2022 - 07 - 20,
+    comments_id: 2,
     blog_title:
       'No NFTs in Minecraft? This Crypto Group Will Make Its Own Game',
     blog_description:
@@ -34,7 +34,7 @@ const blogs = [
 
   {
     user_id: 3,
-    date_created: 2022 - 07 - 10,
+    comments_id: 3,
     blog_title: 'Review: HP Dev One Linux Laptop',
     blog_description:
       'Even if you’re not a developer, this reasonably priced, user-repairable Linux laptop from HP has plenty of attractive features.',

@@ -19,9 +19,8 @@ const schema = {
     type: DataTypes.INTEGER,
 
     allowNull: false,
-
-    foreignKey: {
-      references: User,
+    references: {
+      model: 'User',
       key: 'id',
     },
   },

@@ -14,11 +14,12 @@ const schema = {
     primaryKey: true,
     autoIncrement: true,
   },
+
   blog_id: {
     type: DataTypes.INTEGER,
-    allowNull:false,
-    foreignKey: {
-      references: Blog,
+    allowNull: false,
+    references: {
+      model: 'Blog',
       key: 'id',
     },
     onDelete: 'CASCADE',
@@ -26,9 +27,9 @@ const schema = {
 
   user_id: {
     type: DataTypes.INTEGER,
-    allowNull:false,
-    foreignKey: {
-      references: User,
+    allowNull: false,
+    references: {
+      model: 'User',
       key: 'id',
     },
   },
