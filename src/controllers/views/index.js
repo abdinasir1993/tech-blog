@@ -23,7 +23,17 @@ const renderSignUpPage = (req, res) => {
 };
 
 const renderSingleBlogsPage = async (req, res) => {
-  const blogFromDb = await Blog.findByPk(req.params.id, {});
+  const blogFromDb = await Blog.findByPk(req.params.id, {
+    include: [
+      {
+        model: Comments,
+      },
+      {
+        model: User,
+        attributes: ['firstName', 'lastName'],
+      },
+    ],
+  });
 
   const blog = blogFromDb.get({
     plain: true,
@@ -37,15 +47,14 @@ const renderSingleBlogsPage = async (req, res) => {
   });
 };
 
-// const renderMyBlogsPage = async (req, res) => {
-//   const blog = await Blog.findByPk({});
+const renderDashboard = async (req, res) => {
+  const blogData = await Blog.findAll({});
+  const blog = blogData.map((blog) => {
+    return blog.get({ plain: true });
+  });
 
-//   return res.render('myBlogs', {
-//     isLoggedIn: req.session.isLoggedIn,
-//     currentPage: 'myBlogs',
-//     blog,
-//   });
-// };
+  return res.render('dashboard', { currentPage: 'dashboard', blog });
+};
 
 const renderCreateBlogsPage = (req, res) => {
   return res.render('CreateBlog', {
@@ -60,4 +69,5 @@ module.exports = {
   renderSignUpPage,
   renderSingleBlogsPage,
   renderCreateBlogsPage,
+  renderDashboard,
 };

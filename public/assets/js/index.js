@@ -82,7 +82,7 @@ const handleLogin = async (event) => {
       const data = await response.json();
 
       if (data.success) {
-        window.location.assign('/');
+        window.location.assign('/dashboard');
       } else {
         errorText.append(`<div class="alert alert-danger" role="alert">
           failed to login!
@@ -185,7 +185,7 @@ const handleCreateComment = async (event) => {
 
       console.log(data);
       if (data.success) {
-        // window.location.assign(refresh);
+        window.location.reload();
       } else {
         errorText.append('Failed to create a new comment1. Please try again.');
       }

@@ -56,6 +56,7 @@ const comments = [
   },
   {
     user_id: 1,
+
     blog_id: 3,
     comment_text:
       'Does your blog have a contact page? I’m having problems locating it but, I’d like to shoot you an email. I’ve got some recommendations for your blog you might be interested in hearing.',
@@ -63,6 +64,7 @@ const comments = [
 
   {
     user_id: 2,
+
     blog_id: 3,
     comment_text: 'Great stuff!!',
   },

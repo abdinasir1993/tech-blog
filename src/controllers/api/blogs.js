@@ -1,7 +1,7 @@
 const moment = require('moment');
 // const Blog = require('../../models/Blog');
 // const Comments = require('../../models/Comments');
-const { Blog, Comments } = require('../../models');
+const { Blog, Comments, User } = require('../../models');
 
 const getAllBlogs = async (req, res) => {
   try {
@@ -24,6 +24,10 @@ const getSingleBlog = async (req, res) => {
         {
           model: Comments,
           attributes: ['user_id', 'comment_text'],
+        },
+        {
+          model: User,
+          attributes: ['firstName', 'lastName'],
         },
       ],
     });

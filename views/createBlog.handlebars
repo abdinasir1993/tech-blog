@@ -1,3 +1,9 @@
+{{#if isLoggedIn }}
+  {{> privateNavbar }}
+{{else}}
+  {{> publicNavbar }}
+{{/if}}
+
 <section
       class="mb-5"
  style="

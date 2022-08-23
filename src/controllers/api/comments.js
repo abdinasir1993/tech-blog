@@ -1,12 +1,12 @@
 const moment = require('moment');
 
-const { Comments } = require('../../models');
+const Comments = require('../../models/Comments');
 
 const createComment = async (req, res) => {
   try {
     const { blog_id, comment_text } = req.body;
 
-    const user_id = req.session.user.id || 1;
+    const user_id = req.session.user || 1;
 
     await Comments.create({
       blog_id,
