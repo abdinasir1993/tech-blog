@@ -3,6 +3,7 @@ const signupForm = $('#signup-form');
 const loginForm = $('#login-form');
 const createBlogForm = $('#create-blog-form');
 const addComment = $('#add-comment');
+const logoutBtn = $('#logout-btn');
 
 const handleSignup = async (event) => {
   event.preventDefault();
@@ -82,7 +83,7 @@ const handleLogin = async (event) => {
       const data = await response.json();
 
       if (data.success) {
-        window.location.assign('/dashboard');
+        window.location.assign('/');
       } else {
         errorText.append(`<div class="alert alert-danger" role="alert">
           failed to login!
@@ -199,3 +200,4 @@ addComment.click(handleCreateComment);
 createBlogForm.submit(handleCreateBlog);
 signupForm.submit(handleSignup);
 loginForm.submit(handleLogin);
+logoutBtn.submit(handleLogout);

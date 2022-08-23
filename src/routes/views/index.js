@@ -7,7 +7,7 @@ const {
   renderSignUpPage,
   renderSingleBlogsPage,
   renderCreateBlogsPage,
-  renderDashboard,
+
 } = require('../../controllers/views');
 const auth = require('../../middlewares/auth');
 
@@ -21,6 +21,6 @@ router.get('/signup', renderSignUpPage);
 
 router.get('/blog/:id', auth, renderSingleBlogsPage);
 router.get('/createBlog', auth, renderCreateBlogsPage);
-router.get('/dashboard', auth, renderDashboard);
+
 
 module.exports = router;

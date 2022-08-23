@@ -47,15 +47,6 @@ const renderSingleBlogsPage = async (req, res) => {
   });
 };
 
-const renderDashboard = async (req, res) => {
-  const blogData = await Blog.findAll({});
-  const blog = blogData.map((blog) => {
-    return blog.get({ plain: true });
-  });
-
-  return res.render('dashboard', { currentPage: 'dashboard', blog });
-};
-
 const renderCreateBlogsPage = (req, res) => {
   return res.render('CreateBlog', {
     isLoggedIn: req.session.isLoggedIn,
@@ -69,5 +60,4 @@ module.exports = {
   renderSignUpPage,
   renderSingleBlogsPage,
   renderCreateBlogsPage,
-  renderDashboard,
 };
