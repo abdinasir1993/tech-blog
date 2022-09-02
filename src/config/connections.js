@@ -7,9 +7,9 @@ const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 
 const options = {
-  host: process.env.DB_HOST,
+  host: DB_HOST,
   dialect: 'mysql',
-  port: process.env.PORT || 3306,
+  port: 3306,
   logging: false,
 };
 
