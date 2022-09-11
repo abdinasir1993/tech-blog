@@ -104,6 +104,8 @@ const handleLogin = async (event) => {
 const handleLogout = async (event) => {
   event.preventDefault();
 
+  console.log('click');
+
   const options = {
     method: 'POST',
     headers: {
@@ -112,7 +114,7 @@ const handleLogout = async (event) => {
     redirect: 'follow',
   };
 
-  const response = await fetch('/auth/logout', options);
+  const response = await fetch('auth/logout', options);
   if (response.status !== 204) {
     console.error('Logout failed');
   } else {
@@ -200,4 +202,4 @@ addComment.click(handleCreateComment);
 createBlogForm.submit(handleCreateBlog);
 signupForm.submit(handleSignup);
 loginForm.submit(handleLogin);
-logoutBtn.submit(handleLogout);
+logoutBtn.click(handleLogout);
