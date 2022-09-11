@@ -11,7 +11,11 @@ const renderHomePage = async (req, res) => {
 
   console.log(blog);
 
-  return res.render('homePage', { currentPage: 'homepage', blog });
+  return res.render('homePage', {
+    currentPage: 'homepage',
+    blog,
+    isLoggedIn: req.session.isLoggedIn,
+  });
 };
 
 const renderLoginPage = (req, res) => {
