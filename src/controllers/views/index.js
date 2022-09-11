@@ -52,9 +52,9 @@ const renderSingleBlogsPage = async (req, res) => {
 };
 
 const renderCreateBlogsPage = (req, res) => {
-  return res.render('CreateBlog', {
+  return res.render('createBlog', {
     isLoggedIn: req.session.isLoggedIn,
-    currentPage: 'CreateBlog',
+    currentPage: 'createBlog',
   });
 };
 
